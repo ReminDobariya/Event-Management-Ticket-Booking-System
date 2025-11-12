@@ -86,19 +86,7 @@ cp .env.example .env
 cd ..
 ```
 
-3. **Start MongoDB** (if not already running)
-
-```bash
-# Windows
-mongod
-
-# macOS/Linux
-sudo systemctl start mongod
-# or
-mongod
-```
-
-4. **Start all services**
+3. **Start all services**
 
 Open 4 separate terminal windows/tabs and run:
 
@@ -314,7 +302,7 @@ curl http://localhost:4004/notifications/user/USER123
 
 ## 📝 Environment Variables
 
-Each service has its own `.env` file. Copy `.env.example` to `.env` and configure:
+Each service has its own `.env` file.
 
 - `PORT` - Service port number
 - `MONGODB_URI` - MongoDB connection string
@@ -338,27 +326,5 @@ GET http://localhost:4004/health
 - **Payment Service:** `payments`
 - **Notification Service:** `notifications`
 
-## 🎯 Features
-
-- ✅ Independent microservices with separate databases
-- ✅ RESTful API design
-- ✅ Inter-service communication via HTTP/REST
-- ✅ Proper error handling and validation
-- ✅ JSON responses with status codes
-- ✅ MongoDB integration with Mongoose
-- ✅ Environment-based configuration
-- ✅ Health check endpoints
-
-## 📄 License
-
-ISC
-
-## 👨‍💻 Author
-
-Senior Node.js Architect
-
----
-
-**Note:** Make sure MongoDB is running before starting the services. Each service requires its own database connection.
 
 
