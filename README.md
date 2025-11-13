@@ -24,11 +24,6 @@ graph LR
     B -->|PUT /events/:id| A
     B -->|POST /payments/initiate| C
     C -->|POST /notifications/send| D
-    
-    style A fill:#e1f5ff
-    style B fill:#fff4e1
-    style C fill:#e8f5e9
-    style D fill:#fce4ec
 ```
 
 **Communication Flow:**
