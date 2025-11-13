@@ -11,6 +11,31 @@ This system consists of 4 independent services:
 3. **Payment Service** (Port 4003) - Processes payments
 4. **Notification Service** (Port 4004) - Sends notifications/emails
 
+## 🔄 Service Communication Diagram
+
+```mermaid
+graph LR
+    A[Event Service<br/>:4001] 
+    B[Booking Service<br/>:4002]
+    C[Payment Service<br/>:4003]
+    D[Notification Service<br/>:4004]
+    
+    B -->|GET /events/:id| A
+    B -->|PUT /events/:id| A
+    B -->|POST /payments/initiate| C
+    C -->|POST /notifications/send| D
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e1
+    style C fill:#e8f5e9
+    style D fill:#fce4ec
+```
+
+**Communication Flow:**
+- **Booking Service** → **Event Service**: `GET /events/:id` (check availability) and `PUT /events/:id` (update seats)
+- **Booking Service** → **Payment Service**: `POST /payments/initiate` (process payment)
+- **Payment Service** → **Notification Service**: `POST /notifications/send` (send confirmation)
+
 ## 📁 Project Structure
 
 ```
